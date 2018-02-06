@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="colorPrimary">#1976D2</color>
+    <color name="colorPrimaryDark">#004BA0</color>
+    <color name="colorAccent">#fafafa</color>
+
+    <!-- region Material -->
+    <!-- Material guidelines for white on dark -->
+    <color name="light_on_dark_primary">#FFFFFFFF</color>
+    <color name="light_on_dark_secondary">#B3FFFFFF</color>
+    <color name="light_on_dark_disabled_hint">#80FFFFFF</color>
+    <color name="light_on_dark_divider">#1FFFFFFF</color>
+    <!-- endregion -->
+
+</resources>

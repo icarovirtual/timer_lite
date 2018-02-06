@@ -1,0 +1,24 @@
+<resources>
+
+    <string name="app_name">Timer Lite</string>
+
+    <!-- region Main Activity -->
+    <string name="button_start">Start</string>
+    <string name="button_stop">Stop</string>
+    <string name="label_start_button">Waiting to start</string>
+    <string name="label_stop_button">Timer is running</string>
+    <!-- endregion -->
+
+    <!-- region Notification -->
+    <string name="notification_vibration">Vibration timer is running.</string>
+    <string name="notification_channel_name">Vibration Indicator</string>
+    <string name="notification_channel_description">Enables the vibration timer while the screen is turned off.</string>
+    <!-- endregion -->
+
+    <!-- region Settings -->
+    <string name="settings_vibration_delay_label">Vibration delay</string>
+    <string name="settings_vibration_delay_button_placeholder">60 seconds</string>
+    <string name="settings_vibration_delay_tag">vibration_button</string>
+    <!-- endregion -->
+
+</resources>

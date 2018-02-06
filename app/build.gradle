@@ -1,0 +1,51 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion 26
+    defaultConfig {
+        minSdkVersion 21
+        targetSdkVersion 26
+    }
+
+    dataBinding {
+        enabled = true
+    }
+
+    buildTypes {
+        debug {
+            applicationIdSuffix ".lite.debug"
+            versionNameSuffix "-debug"
+        }
+        release {
+            applicationIdSuffix ".lite"
+        }
+    }
+
+    flavorDimensions "default"
+
+    productFlavors {
+        base {
+            applicationId "br.not.sitedoicaro.timer"
+            dimension "default"
+
+            resConfigs "en-rUS"
+
+            versionCode 1
+            versionName "1.0"
+        }
+    }
+}
+
+dependencies {
+    kapt "com.android.databinding:compiler:$gradle_version"
+
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+    implementation 'com.android.support:appcompat-v7:26.1.0'
+    // Provides the number picker for the timer delays
+    implementation 'com.github.StephenVinouze:MaterialNumberPicker:1.0.4'
+}

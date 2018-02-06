@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="presenter"
+            type="br.not.sitedoicaro.timer.MainActivity.Presenter"/>
+
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        tools:context="br.not.sitedoicaro.timer.MainActivity">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.6"
+                    android:enabled="@{!presenter.isStarted()}"
+                    android:text="@string/settings_vibration_delay_label"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"/>
+
+                <Button
+                    android:id="@+id/vibration_button"
+                    style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.4"
+                    android:enabled="@{!presenter.isStarted()}"
+                    android:onClick="@{() -> presenter.onDelayClick()}"
+                    android:tag="@string/settings_vibration_delay_tag"
+                    tools:text="@string/settings_vibration_delay_button_placeholder"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:layout_gravity="bottom"
+            android:background="@color/colorPrimary">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_alignParentTop="true"
+                android:background="@color/light_on_dark_divider"/>
+
+            <Button
+                android:id="@+id/button_start_stop"
+                style="@style/Base.Widget.AppCompat.Button.Borderless"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:onClick="@{() -> presenter.isStarted.get() ? presenter.onStop(): presenter.onStart()}"
+                android:padding="0dp"
+                android:text="@{presenter.isStarted.get() ? @string/button_stop : @string/button_start}"
+                tools:text="@string/button_start"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="16dp"
+                android:layout_toStartOf="@id/button_start_stop"
+                android:gravity="center_vertical"
+                android:text="@{presenter.isStarted.get() ? @string/label_stop_button : @string/label_start_button}"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                tools:text="@string/label_start_button"/>
+
+        </RelativeLayout>
+
+    </FrameLayout>
+
+</layout>
